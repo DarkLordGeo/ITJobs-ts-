@@ -7,7 +7,7 @@ interface IPageHeaderProps {
 
 const PageHeaderWrapper: React.FC<IPageHeaderProps> = ({ children, description }) => {
     return (
-        <div className="text-white text-center items-center flex justify-center text-[2.5rem] md:text-[3.5rem] lg:text-[5rem] font-bold flex-col">
+        <div className="text-white text-center items-center flex justify-center text-[2.5rem] md:text-[3.5rem] lg:text-[5rem] font-bold flex-col z-2">
             <div className='flex'>
                 {children}
             </div>

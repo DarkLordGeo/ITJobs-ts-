@@ -10,7 +10,7 @@ const AppRouter: React.FC = () => {
     return (
         <Routes>
             <Route path='/' element={<MainPage />} />
-            <Route path='/bookmarks' element={<BookmarkPage />} />
+            <Route path='/bookmark' element={<BookmarkPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/job_page' element={<JobPage />} />
         </Routes>

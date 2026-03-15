@@ -1,8 +1,16 @@
 import React from 'react'
-import { Header } from '../layouts/PageLayouts/PageHeaderLayout/PageHeaderLayout'
+
+import TopSection from '../components/TopSection/TopSection'
+import MainContent from '../components/MainContent/MainContent'
+import PageLayout from '../layouts/PageLayouts/PageLayout/PageLayout'
 
 const MainPage: React.FC = () => {
-    return <Header />
+    return (
+        <PageLayout>
+            <TopSection />
+            <MainContent />
+        </PageLayout>
+    )
 }
 
 export default MainPage

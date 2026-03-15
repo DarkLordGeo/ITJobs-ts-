@@ -20,7 +20,6 @@ const HeaderComponent: React.FC<IHeaderComponentProps> = ({ preHeader, header })
                 showBorder={false}
             >
                 {header}
-                
             </GradientText>
         </>
     )
