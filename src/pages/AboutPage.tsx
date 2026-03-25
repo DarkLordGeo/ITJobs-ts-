@@ -9,7 +9,7 @@ const AboutPage: React.FC = () => {
     return (
         <PageLayout>
             <TopSectionWrapper>
-                <PageHeaderWrapper description='"'>
+                <PageHeaderWrapper description=''>
                     <HeaderComponent preHeader="" header="About" />
                 </PageHeaderWrapper>
             </TopSectionWrapper>

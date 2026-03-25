@@ -15,7 +15,6 @@ const BookmarkPage: React.FC = () => {
                     <HeaderComponent preHeader="" header="Bookmarks" />
                 </PageHeaderWrapper>
             </TopSectionWrapper>
-
             <PageContentLayout>
                 <div className='text-center text-2xl font-bold py-32 pb-32'>
                     <h1>You have no Bookmarks 😊. Try adding some</h1>
