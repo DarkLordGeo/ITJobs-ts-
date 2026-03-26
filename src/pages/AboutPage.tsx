@@ -99,8 +99,6 @@ const AboutPage: React.FC = () => {
                         </div>
                     </div>
 
-
-
                 </div>
             </PageContentLayout>
         </PageLayout>
