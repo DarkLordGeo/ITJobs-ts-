@@ -5,7 +5,8 @@ export interface IData {
     job_id: string,
     job_link: string,
     position: string,
-    isBookmark: boolean
+    isBookmark: boolean,
+    index?: number
 }
 
 

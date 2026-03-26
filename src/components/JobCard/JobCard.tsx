@@ -8,15 +8,18 @@ import { useAddBookmark, useRemoveBookmark } from "../../store/store"
 // import { useAddBookmark } from "../../store/store"
 // import { apiUrl } from "../../api/apiUrl"
 
-const JobCard = ({ company, date, description, job_id, position, isBookmark }: IData) => {
-    // const addBookmark = useAppStore((state) => state.addBookmark)
+const JobCard = ({ company, date, description, job_id, position, isBookmark, index }: IData) => {
+
+
     // adding bookmark hook
     const addBookmark = useAddBookmark()
     const removeBookmark = useRemoveBookmark()
     const navigate = useNavigate()
 
+
     return (
         <div
+            onClick={() => navigate(`/jobs/${index}`)}
             className="w-full p-5 rounded-md cursor-pointer  text-white flex gap-8 flex-col h-full overflow-y-auto border-2 border-red-500"
         >
             <SpotlightCard
@@ -43,13 +46,13 @@ const JobCard = ({ company, date, description, job_id, position, isBookmark }: I
                         <div>{description}</div>
                         <div className="flex flex-row gap-2.5 z-1">
                             <Bookmark
-                                onClick={() => isBookmark ? removeBookmark(job_id) : addBookmark(job_id)}
+                                onClick={(e) => { isBookmark ? removeBookmark(job_id) : addBookmark(job_id), e.stopPropagation() }}
                                 className={` 
                                     ${isBookmark && 'fill-white'}
                                     h-[1.2rem] w-[1.2rem] hover:scale-120 transition-all hover:fill-white duration-200 ease-in-out `}
                             />
                             <Share className='h-[1.2rem] w-[1.2rem] hover:scale-120 transition-all duration-200 ease-in-out'
-                                onClick={() => navigate(`/job/d`)}
+
                             />
                         </div>
                     </div>
