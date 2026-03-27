@@ -6,8 +6,15 @@ import PageHeaderWrapper from '../layouts/PageLayouts/PageHeaderLayout/PageHeade
 import HeaderComponent from '../components/Header/HeaderComponents/HeaderComponent'
 import { TopSectionWrapper } from '../layouts/PageLayouts/TopSectionLayout/TopSectionLayout'
 import { Link } from 'react-router'
+import { bookmarks } from '../store/store'
 
 const BookmarkPage: React.FC = () => {
+
+    const bookmarks_list = bookmarks()
+
+    console.log(bookmarks_list)
+
+
     return (
         <PageLayout>
             <TopSectionWrapper>
@@ -16,11 +23,11 @@ const BookmarkPage: React.FC = () => {
                 </PageHeaderWrapper>
             </TopSectionWrapper>
             <PageContentLayout>
-                <div className='text-center text-2xl font-bold py-32 pb-32'>
-                    <h1>You have no Bookmarks 😊. Try adding some</h1>
-                    <br />
-                    <br />
-                    <Link to='/' className='font-thin hover:underline'>Go back</Link>
+                <div className='h-screen flex items-center justify-center flex-col text-center'>
+                    <h1 className='text-2xl md:text-4xl mb-12'>
+                        You have no Bookmarks 😊. Try adding some
+                    </h1>
+                    <Link className='text-xl md:text-2xl font-bold hover:underline' to={'/jobs'}>Go back</Link>
                 </div>
             </PageContentLayout>
         </PageLayout>

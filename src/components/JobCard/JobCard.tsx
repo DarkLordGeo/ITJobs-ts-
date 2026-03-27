@@ -20,7 +20,7 @@ const JobCard = ({ company, date, description, job_id, position, isBookmark, ind
     return (
         <div
             onClick={() => navigate(`/jobs/${index}`)}
-            className="w-full p-5 rounded-md cursor-pointer  text-white flex gap-8 flex-col h-full overflow-y-auto border-2 border-red-500"
+            className="w-full p-5 rounded-md cursor-pointer  text-white flex gap-8 flex-col h-full overflow-y-auto "
         >
             <SpotlightCard
                 spotlightColor="rgba(0, 229, 255, 0.2)"

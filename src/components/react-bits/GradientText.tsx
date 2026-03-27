@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
+import {  useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
 
 interface GradientTextProps {
   children: React.ReactNode;

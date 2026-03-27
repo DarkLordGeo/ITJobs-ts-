@@ -9,4 +9,5 @@ export const useFetchJobData = (id: number) => {
         queryFn: () => fetchJobData(id)
     })
     return { data, isLoading, error }
+
 }

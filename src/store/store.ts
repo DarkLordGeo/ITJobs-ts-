@@ -1,9 +1,6 @@
-// import { data } from 'react-router'
-// import { storage } from 'three/src/nodes/accessors/StorageBufferNode.js'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { useShallow } from 'zustand/react/shallow'
-import { type IData } from '../interfaces/data.interface'
 
 
 interface appStore {
