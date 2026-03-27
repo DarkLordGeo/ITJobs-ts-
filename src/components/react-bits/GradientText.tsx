@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
-import {  useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
+import { useState,  useEffect, useRef } from 'react';
+import {  useMotionValue, useAnimationFrame} from 'motion/react';
 
 interface GradientTextProps {
   children: React.ReactNode;
@@ -64,24 +64,24 @@ export default function GradientText({
     progress.set(0);
   }, [animationSpeed, yoyo]);
 
-  const backgroundPosition = useTransform(progress, p => {
-    if (direction === 'horizontal') {
-      return `${p}% 50%`;
-    } else if (direction === 'vertical') {
-      return `50% ${p}%`;
-    } else {
-      // For diagonal, move only horizontally to avoid interference patterns
-      return `${p}% 50%`;
-    }
-  });
+  // const backgroundPosition = useTransform(progress, p => {
+  //   if (direction === 'horizontal') {
+  //     return `${p}% 50%`;
+  //   } else if (direction === 'vertical') {
+  //     return `50% ${p}%`;
+  //   } else {
+  //     // For diagonal, move only horizontally to avoid interference patterns
+  //     return `${p}% 50%`;
+  //   }
+  // });
 
-  const handleMouseEnter = useCallback(() => {
-    if (pauseOnHover) setIsPaused(true);
-  }, [pauseOnHover]);
+  // const handleMouseEnter = useCallback(() => {
+  //   if (pauseOnHover) setIsPaused(true);
+  // }, [pauseOnHover]);
 
-  const handleMouseLeave = useCallback(() => {
-    if (pauseOnHover) setIsPaused(false);
-  }, [pauseOnHover]);
+  // const handleMouseLeave = useCallback(() => {
+  //   if (pauseOnHover) setIsPaused(false);
+  // }, [pauseOnHover]);
 
   const gradientAngle =
     direction === 'horizontal' ? 'to right' : direction === 'vertical' ? 'to bottom' : 'to bottom right';

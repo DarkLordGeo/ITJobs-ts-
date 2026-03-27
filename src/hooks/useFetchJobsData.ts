@@ -7,7 +7,6 @@ export const useFetchJobsData = () => {
     const { data, isLoading, error } = useQuery<IData[]>({
         queryKey: ['data'],
         queryFn: fetchJobsData,
-        // refetchInterval: 1000
     })
     return { data, isLoading, error }
 }

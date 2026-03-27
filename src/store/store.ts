@@ -1,3 +1,5 @@
+import type { IData } from '@/interfaces/data.interface'
+// import { data } from 'react-router'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { useShallow } from 'zustand/react/shallow'
@@ -22,6 +24,7 @@ const bookmarkStore = create<appStore>()(
     )
 )
 
+
 export const bookmarks = () => {
     const bookmarks_list = bookmarkStore(useShallow((state) => state.bookmarks))
     return bookmarks_list
@@ -31,34 +34,50 @@ export const useRemoveBookmark = () => bookmarkStore((state) => state.removeBook
 
 
 
-// const initialValues: IData = {
-//     company: '',
-//     date: [],
-//     description: [''],
-//     isBookmark: false,
-//     job_id: '',
-//     job_link: '',
-//     position: ''
-// }
 
-// const jobDataStore = create<IData>()((set) => ({
+// const dataState = {
 //     company: '',
 //     date: [],
-//     description: [''],
-//     isBookmark: false,
+//     desciption: [],
 //     job_id: '',
 //     job_link: '',
 //     position: '',
-//     // navigateState: (param: IData) => set((state) => ({ initialValues: state }))
-//     navigateState: (param: IData) => set(() => ({ company: param.company }))
-
-// }))
-
-
-// export const jobData = () => {
-//     const jobData = jobDataStore((state) => state.company)
-//     return jobData
+//     isBookmark: false,
+//     index: 0,
 // }
 
-// const useNavigateData = () => jobDataStore((state) => state.navigateState)
-// // export const useJobData = () => jobDataStore((state) => sta)
+const dataStore = create<IData>()((set) => ({
+    // dataState,
+    company: '',
+    date: [],
+    desciption: [],
+    job_id: '',
+    job_link: '',
+    position: '',
+    isBookmark: false,
+    // index: 0,
+    update_data: () => set((state) => ({
+        company: state.company,
+        date: state.date,
+        desciption: state.desciption,
+        job_id: state.job_id,
+        job_link: state.job_link,
+        position: state.position,
+        isBookmark: state.isBookmark,
+        // index: state.index
+    }))
+}))
+
+export const storeData = () => {
+    const store_data = dataStore((state) => ({
+        company: state.company,
+        date: state.date,
+        desciption: state.desciption,
+        job_id: state.job_id,
+        job_link: state.job_link,
+        position: state.position,
+        isBookmark: state.isBookmark,
+    }))
+    return store_data
+}
+

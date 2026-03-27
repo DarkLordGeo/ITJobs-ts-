@@ -11,7 +11,7 @@ const Error = () => {
                     <h1 className='text-2xl md:text-4xl mb-12'>
                         Couldn't find what you was looking for?
                     </h1>
-                    <Link className='text-xl md:text-2xl font-bold hover:underline' to={'/jobs'}>Go back</Link>
+                    <Link className='text-xl md:text-2xl font-bold hover:underline' to={'/'}>Go back</Link>
                 </div>
             </PageContentLayout>
         </MainPageLayout>

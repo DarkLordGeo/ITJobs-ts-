@@ -1,12 +1,12 @@
 export interface IData {
     company: string,
     date: string[],
-    description: string[],
+    desciption: string[],
     job_id: string,
     job_link: string,
     position: string,
     isBookmark: boolean,
-    index?: number
+    index?: number,
 }
 
 

@@ -10,12 +10,11 @@ import ErrorPage from '../components/ErrorPage/ErrorPage'
 const AppRouter: React.FC = () => {
     return (
         <Routes>
-            <Route path='/jobs' element={<MainPage />} />
+            <Route path='/' element={<MainPage />} />
             <Route path='/bookmark' element={<BookmarkPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/jobs/:id' element={<JobPage />} />
             <Route path='*' element={<ErrorPage />} />
-
         </Routes>
     )
 }

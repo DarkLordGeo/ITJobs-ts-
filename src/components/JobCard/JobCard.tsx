@@ -5,22 +5,25 @@ import SpotlightCard from "../react-bits/SpotlightCard"
 import { useNavigate } from "react-router"
 // import { useStore } from "zustand"
 import { useAddBookmark, useRemoveBookmark } from "../../store/store"
+// import { Skeleton } from "../ui/skeleton"
+// import SkeletonCard from "../SkeletonCard/SkeletonCard"
 // import { useAddBookmark } from "../../store/store"
 // import { apiUrl } from "../../api/apiUrl"
 
-const JobCard = ({ company, date, description, job_id, position, isBookmark, index }: IData) => {
-
+const JobCard = ({ company, date, job_id, position, isBookmark, index }: IData) => {
 
     // adding bookmark hook
     const addBookmark = useAddBookmark()
     const removeBookmark = useRemoveBookmark()
+
+    // navigate hook
     const navigate = useNavigate()
 
 
     return (
         <div
             onClick={() => navigate(`/jobs/${index}`)}
-            className="w-full p-5 rounded-md cursor-pointer  text-white flex gap-8 flex-col h-full overflow-y-auto "
+            className="w-full p-5 rounded-md cursor-pointertext-white flex gap-8 flex-col h-full overflow-y-auto"
         >
             <SpotlightCard
                 spotlightColor="rgba(0, 229, 255, 0.2)"
@@ -42,9 +45,9 @@ const JobCard = ({ company, date, description, job_id, position, isBookmark, ind
                                 .replaceAll("<b>", "").replaceAll("</b>", "")}</p>
                         </div>
                     </div>
-                    <div className="w-auto  flex justify-between s-start ">
-                        <div>{description}</div>
-                        <div className="flex flex-row gap-2.5 z-1">
+                    <div className="w-auto flex justify-end md:justify-start items-start">
+                        {/* <div>{desciption}</div> */}
+                        <div className="flex flex-row gap-2.5 z-1 ">
                             <Bookmark
                                 onClick={(e) => { isBookmark ? removeBookmark(job_id) : addBookmark(job_id), e.stopPropagation() }}
                                 className={` 
@@ -58,6 +61,7 @@ const JobCard = ({ company, date, description, job_id, position, isBookmark, ind
                     </div>
                 </div>
             </SpotlightCard>
+
         </div>
     )
 }

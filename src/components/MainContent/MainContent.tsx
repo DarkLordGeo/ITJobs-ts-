@@ -1,67 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PageContentLayout } from '../../layouts/PageLayouts/PageContentLayout/PageContentLayout'
-import JobCard from '../JobCard/JobCard'
 import { useFetchJobsData } from '../../hooks/useFetchJobsData'
 // import { bookmarks_list } from '../../store/store.ts'
 import { bookmarks } from '../../store/store'
+import JobCardSkeleton from '../JobCardSkeleton/JobCardSkeleton'
+import JobCard from '../JobCard/JobCard'
+import type { IData } from '@/interfaces/data.interface'
 
 
 const MainContent: React.FC = () => {
-    try {
-        const { data, isLoading, error } = useFetchJobsData()
-        const bookmark_list = bookmarks()
-        // console.log(data)
 
-        console.log('loading: ', isLoading, 'error', error)
+    const data = useFetchJobsData()
+    const bookmark_list = bookmarks()
 
-        const content = data?.map(({ company, date, description, job_id, job_link, position }, index) => {
-            const isBookmark = bookmark_list.includes(job_id)
-            return (
-                <JobCard
-                    index={index}
-                    key={job_id}
-                    company={company}
-                    date={date}
-                    description={description}
-                    job_id={job_id}
-                    job_link={job_link}
-                    position={position}
-                    isBookmark={isBookmark}
-                />
-            )
-        }) || <>loading...</>
+    // console.log(data?.data?.length)
+    // console.log(data?.data)
 
-        if (isLoading) return <h1>Loading...</h1>
-        if (error) return <h1>error</h1>
+    if (data.error) return <h1>Error</h1>
 
+    const content = data?.data !== undefined && data?.data?.map(({ company, date, desciption, job_id, job_link, position }, index) => {
+        const isBookmark = bookmark_list.includes(job_id)
         return (
-            <PageContentLayout >
-                {content}
-                {/* {data?.map(({ company, date, description, job_id, job_link, position }, index) => {
-                const isBookmark = bookmark_list.includes(job_id)
-                return (
-                    <JobCard
-                        index={index}
-                        key={job_id}
-                        company={company}
-                        date={date}
-                        description={description}
-                        job_id={job_id}
-                        job_link={job_link}
-                        position={position}
-                        isBookmark={isBookmark}
-                    />
-                )
-            })} */}
-
-
-            </PageContentLayout >
+            <JobCard
+                index={index}
+                key={job_id}
+                company={company}
+                date={date}
+                desciption={desciption}
+                job_id={job_id}
+                job_link={job_link}
+                position={position}
+                isBookmark={isBookmark}
+            />
         )
+    })
 
-    }
-    catch (err) {
-        console.log(err)
-    }
+    return (
+        <PageContentLayout >
+            {data.isLoading && <JobCardSkeleton card={200} />}
+
+            {content}
+        </PageContentLayout >
+    )
+
 
 }
 
