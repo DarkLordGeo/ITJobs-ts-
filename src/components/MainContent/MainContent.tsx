@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { PageContentLayout } from '../../layouts/PageLayouts/PageContentLayout/PageContentLayout'
 import { useFetchJobsData } from '../../hooks/useFetchJobsData'
 // import { bookmarks_list } from '../../store/store.ts'
 import { bookmarks } from '../../store/store'
 import JobCardSkeleton from '../JobCardSkeleton/JobCardSkeleton'
 import JobCard from '../JobCard/JobCard'
-import type { IData } from '@/interfaces/data.interface'
+// import type { IData } from '@/interfaces/data.interface'
 
 
 const MainContent: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import GradientText from '../../react-bits/GradientText'
+// import GradientText from '../../react-bits/GradientText'
 
 interface IHeaderComponentProps {
     preHeader: string,
@@ -14,13 +14,13 @@ const HeaderComponent: React.FC<IHeaderComponentProps> = ({ preHeader, header })
             <h1>
                 {!preHeader ? "" : "IT"}
             </h1>
-            <GradientText
+            {/* <GradientText
                 colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                 animationSpeed={8}
                 showBorder={false}
-            >
+            > */}
                 {header}
-            </GradientText>
+            {/* </GradientText> */}
         </>
     )
 }
